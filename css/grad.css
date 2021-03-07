@@ -39,6 +39,6 @@ body{
   .cols{
     width: 20%;
     min-height: 100px;
-    background-color: red;
+    background-color: black;
     display: inline-block;
   }
