@@ -46,5 +46,10 @@ body{
     min-height: 100px;
     background-color: black;
     display: inline-block;
-    border:1px solid#000000;
+    border:0.5px solid#121212;
+    box-sizing: border-box;
+  }
+  #mainChecked{
+    width: 100%;
+    text-align: center;
   }
