@@ -36,3 +36,9 @@ body{
     95% {background-color: #ff990f;}
    99%  { background-color: #ff2929;}
   }
+  .cols{
+    width: 20%;
+    min-height: 100px;
+    background-color: red;
+    display: inline-block;
+  }
