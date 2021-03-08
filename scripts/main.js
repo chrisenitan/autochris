@@ -1,6 +1,7 @@
 //main js file
 window.addEventListener("load", function(){
 
+    //checked scripts
     var allChecks = document.querySelectorAll(".cols")
     for (var i = 0; i < allChecks.length; i++) {
         //set initially to black on DOM
@@ -24,7 +25,6 @@ window.addEventListener("load", function(){
             //get new color and log changes
             var newColor = document.getElementById(colId).style.backgroundColor;
             console.log(`Changed background for box ${colId} from ${initialColor} to ${newColor}`)
-        
         })
       }
 
