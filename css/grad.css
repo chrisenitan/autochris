@@ -93,6 +93,14 @@ body {
   width: 100%;
   text-align: center;
 }
-.control{
-  padding: 10%;
+.control {
+  padding-top: 62px;
+  float: left;
+}
+button {
+  border: none;
+  background-color: azure;
+  width: 25%;
+  height: 25px;
+  cursor: pointer;
 }
