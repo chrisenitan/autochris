@@ -31,3 +31,9 @@ window.addEventListener("load", function () {
       })
   }
 })
+
+//custom brightness level for checked 
+
+let customLevel = (req) =>{
+  document.getElementById("3").style.backgroundColor = "white"
+}
