@@ -35,5 +35,22 @@ window.addEventListener("load", function () {
 //custom brightness level for checked 
 
 let customLevel = (req) =>{
-  document.getElementById("3").style.backgroundColor = "white"
+  var checks = document.querySelectorAll(`.${req}`)
+  for (var i = 0; i < checks.length; i++){
+    checks[i].style.backgroundColor = "white"
+  }
+  /* switch (req){
+    case "mini":
+      document.querySelectorAll("mini")
+      break;
+      case "medi":
+        document.getElementById("3").style.backgroundColor = "white"
+        break;
+        case "maxi":
+          document.getElementById("3").style.backgroundColor = "white"
+          break;
+          default:
+            document.getElementById("3").style.backgroundColor = "white"
+
+  } */
 }
