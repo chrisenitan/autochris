@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
 let customLevel = (req) =>{
   var checks = document.querySelectorAll(`.${req}`)
   for (var i = 0; i < checks.length; i++){    
-    let getCurrentColor = checks[1].style.backgroundColor
+    let getCurrentColor = checks[i].style.backgroundColor
     switch (getCurrentColor){
       case "black":
         checks[i].style.backgroundColor = "white"
