@@ -36,8 +36,18 @@ window.addEventListener("load", function () {
 
 let customLevel = (req) =>{
   var checks = document.querySelectorAll(`.${req}`)
-  for (var i = 0; i < checks.length; i++){
-    checks[i].style.backgroundColor = "white"
+  for (var i = 0; i < checks.length; i++){    
+    let getCurrentColor = checks[1].style.backgroundColor
+    switch (getCurrentColor){
+      case "black":
+        checks[i].style.backgroundColor = "white"
+        break;
+        case "white":
+          checks[i].style.backgroundColor = "black"
+          break;
+          default:
+            checks[i].style.backgroundColor = "black"
+    }
   }
   /* switch (req){
     case "mini":
