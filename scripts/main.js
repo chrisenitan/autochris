@@ -49,18 +49,4 @@ let customLevel = (req) =>{
             checks[i].style.backgroundColor = "black"
     }
   }
-  /* switch (req){
-    case "mini":
-      document.querySelectorAll("mini")
-      break;
-      case "medi":
-        document.getElementById("3").style.backgroundColor = "white"
-        break;
-        case "maxi":
-          document.getElementById("3").style.backgroundColor = "white"
-          break;
-          default:
-            document.getElementById("3").style.backgroundColor = "white"
-
-  } */
 }
