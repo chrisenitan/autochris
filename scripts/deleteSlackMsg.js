@@ -2,7 +2,7 @@
 //not stable:
 /* 
 not stable
-the dom gets elemenets loaded in view so once a while you have to scroll up to preload new classes. 
+the dom gets element loaded in view so once a while you have to scroll up to preload new classes. 
 can fix with scroll event but i dont have time for that. 
 */
 
@@ -11,8 +11,10 @@ function myFunction() {
   document.querySelectorAll(".c-message_kit__gutter__right")[2].dispatchEvent(x)
 
   //click the menu icon on message
-  if (document.querySelectorAll(".c-message_actions__button")[7]) {
-    document.querySelectorAll(".c-message_actions__button")[7].click()
+  if (document.querySelectorAll('[data-qa="more_message_actions"]')) {
+    const allMenu = document.querySelectorAll('[data-qa="more_message_actions"]')
+    allMenu[0].click()
+    console.log("found and clicked menu")
   } else {
     console.log("could not find menu, please refresh")
   }
@@ -20,6 +22,7 @@ function myFunction() {
   //click delete on sub menu options
   if (document.querySelectorAll(".c-menu_item__label")[6]) {
     document.querySelectorAll(".c-menu_item__label")[6].click()
+    console.log("found and clicked delete froom menu")
   } else {
     console.log("could not find delete, please refresh")
   }
@@ -28,6 +31,7 @@ function myFunction() {
   setTimeout(function () {
     if (document.querySelectorAll(".c-button--focus-visible")[0]) {
       document.querySelectorAll(".c-button--focus-visible")[0].click()
+      console.log("found and clicked confirm delete")
     } else {
       console.log("could not find confirm deelete, please refresh")
     }
