@@ -104,7 +104,7 @@ body {
 }
 button {
   border: none;
-  background-color: azure;
+  background-color: #383939;
   width: 25%;
   height: auto;
   cursor: pointer;
