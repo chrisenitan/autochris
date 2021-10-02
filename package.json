@@ -1,0 +1,23 @@
+{
+  "name": "autochris",
+  "version": "1.0.0",
+  "description": "automation scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisenitan/autochris.git"
+  },
+  "keywords": [
+    "scripts",
+    "automation"
+  ],
+  "author": "Chris Enitan",
+  "license": "ISC",
+  "bugs": {
+    "url": "hhttps://github.com/chrisenitan/autochris/issues"
+  },
+  "homepage": "https://github.com/chrisenitan/autochris#readme"
+}
