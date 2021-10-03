@@ -33,7 +33,6 @@ window.addEventListener("load", function () {
 })
 
 //custom brightness level for checked 
-
 let customLevel = (req) =>{
   var checks = document.querySelectorAll(`.${req}`)
   for (var i = 0; i < checks.length; i++){    

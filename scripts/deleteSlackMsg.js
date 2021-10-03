@@ -1,5 +1,4 @@
 //simple console script to delete all slaack messages in a chat.
-//not stable:
 /* 
 not stable
 the dom gets element loaded in view so once a while you have to scroll up to preload new classes. 
@@ -7,8 +6,8 @@ can fix with scroll event but i dont have time for that.
 */
 
 function myFunction() {
-  var x = new Event("mouseover", { bubbles: true })
-  document.querySelectorAll(".c-message_kit__gutter__right")[2].dispatchEvent(x)
+  var hover = new Event("mouseover", { bubbles: true })
+  document.querySelectorAll(".c-message_kit__gutter__right")[2].dispatchEvent(hover)
 
   //click the menu icon on message
   if (document.querySelectorAll('[data-qa="more_message_actions"]')) {
