@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "automation scripts",
   "main": "index.js",
+  "bin":{
+    "mush": "bashes"
+  },
   "scripts": {
     "test": "test"
   },
