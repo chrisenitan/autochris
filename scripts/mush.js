@@ -1,7 +1,7 @@
 //simple cli tool
 const args = process.argv[2]
 const usageHint =
-  "\nUsage:\nmush <command>\n\nAll Commands:\nmush date: returns the full dateTimeZone"
+  "\nUsage:\nmush <command>\n\nAll Commands:\nmush help: overview of commands\nmush date: returns the full dateTimeZone\nmush flipcoin: flips a coin and returns 'heads' or 'tails'"
 let outer = (req) => {
   console.log(req)
 }
@@ -28,7 +28,7 @@ let processRequest = (args) => {
       outer(coin)
       break
     default:
-      outer(`Could not parse request\n${usageHint}`)
+      outer(`Could not parse the request\n${usageHint}`)
   }
 }
 processRequest(args)
