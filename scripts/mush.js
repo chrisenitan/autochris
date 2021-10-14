@@ -20,7 +20,12 @@ let processRequest = (args) => {
       outer(new Date())
       break
     case "flipcoin":
-      outer("Heads") //wip would be fun
+      if (new Date().getSeconds() % 2 != 0) {
+        var coin = "Heads"
+      } else {
+        var coin = "Tails"
+      }
+      outer(coin)
       break
     default:
       outer(`Could not parse request\n${usageHint}`)
