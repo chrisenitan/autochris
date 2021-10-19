@@ -2,8 +2,7 @@
 const readline = require("readline")
 const args = process.argv[2]
 const usageHint = `Usage:
-  mush <command>\n
-  All Commands:
+  mush <command>\n\nAll Commands:
   mush help: overview of commands
   mush date: returns the full dateTimeZone
   mush flipcoin: flips a coin and returns 'heads' or 'tails'
@@ -61,7 +60,7 @@ let processRequest = (args) => {
         .catch((errMessage) => {
           console.log(`Did not get a clear response`)
         }) */
-      let nudge = async () => {
+      let getTalk = async () => {
         try {
           const replyUser = await talker()
           console.log(`${replyUser}? That's one way to feel.`)
@@ -69,7 +68,7 @@ let processRequest = (args) => {
           console.log(`Did not get a clear response`)
         }
       }
-      nudge()
+      getTalk()
       break
     default:
       outer(`Could not parse the request\n${usageHint}`)

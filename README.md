@@ -1,5 +1,5 @@
 # AutoChris
-General scripts I use in managing everythiing around; web scraping, browser controls, peripherals 
+General scripts I use in managing everything around; web scraping, browser controls, peripherals 
 
 ## Some of what it does
 1. Delete all chat messages on Slack
