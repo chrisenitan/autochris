@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "automation scripts",
   "main": "index.js",
-  "bin":{
+  "bin": {
     "mush": "bashes"
   },
   "scripts": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "hhttps://github.com/chrisenitan/autochris/issues"
   },
-  "homepage": "https://github.com/chrisenitan/autochris#readme"
+  "homepage": "https://github.com/chrisenitan/autochris#readme",
+  "dependencies": {
+    "axios": "^0.23.0"
+  }
 }

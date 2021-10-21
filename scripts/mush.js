@@ -1,6 +1,7 @@
 //simple cli tool
 const readline = require("readline")
 const args = process.argv[2]
+const axios = require("axios").default
 const usageHint = `Usage:
   mush <command>\n\nAll Commands:
   mush help: overview of commands
@@ -28,11 +29,26 @@ let talker = () =>
     })
   })
 
+//api call to exchange value
+let exchange = (to) => {
+  axios({
+    method: "GET",
+    url: `http://data.fixer.io/api/latest?access_key=66c8c6f8e0e1c6e1c63daa19dd4e48c0&symbols=${to}&format=1`,
+  })
+    .then((response) => {
+      console.log(response.data)
+      console.log(`One EUR is currently ${Object.values(response.data.rates)} ${to}`)
+    })
+    .catch((error) => {
+      console.log(error.data)
+    })
+}
+
 //main process
 let processRequest = (args) => {
   //sanitise input array
   var errMessage = ""
-  if (process.argv.length != 3) {
+  if (process.argv.length < 3) {
     errMessage = "Invalid request recieved"
     args = "help"
   }
@@ -69,6 +85,9 @@ let processRequest = (args) => {
         }
       }
       getTalk()
+      break
+    case "exchange":
+      exchange(process.argv[3])
       break
     default:
       outer(`Could not parse the request\n${usageHint}`)
