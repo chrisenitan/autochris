@@ -9,7 +9,6 @@ const usageHint = `Usage:
   mush flipcoin: flips a coin and returns 'heads' or 'tails'
   mush talk: asks a question and responds
   `
-
 //general output logger
 let outer = (req) => {
   console.log(req)
@@ -28,19 +27,34 @@ let talker = () =>
       rl.close()
     })
   })
+let getTalk = async () => {
+  try {
+    const replyUser = await talker()
+    console.log(`${replyUser}? That's one way to feel.`)
+  } catch {
+    console.log(`Did not get a clear response`)
+  }
+}
+/* talker()
+  .then((res) => {
+    outer(`${res}? That's one way to feel.`)
+  })
+  .catch((errMessage) => {
+    console.log(`Did not get a clear response`)
+  }) */
 
-//api call to exchange value
+//get exchange rate value
 let exchange = (to) => {
   axios({
     method: "GET",
     url: `http://data.fixer.io/api/latest?access_key=66c8c6f8e0e1c6e1c63daa19dd4e48c0&symbols=${to}&format=1`,
   })
     .then((response) => {
-      console.log(response.data)
-      console.log(`One EUR is currently ${Object.values(response.data.rates)} ${to}`)
+      outer(response.data)
+      outer(`One EUR is currently ${Object.values(response.data.rates)} ${to}`)
     })
     .catch((error) => {
-      console.log(error.data)
+      outer(error.data)
     })
 }
 
@@ -69,21 +83,6 @@ let processRequest = (args) => {
       outer(coin)
       break
     case "talk":
-      /* talker()
-        .then((res) => {
-          outer(`${res}? That's one way to feel.`)
-        })
-        .catch((errMessage) => {
-          console.log(`Did not get a clear response`)
-        }) */
-      let getTalk = async () => {
-        try {
-          const replyUser = await talker()
-          console.log(`${replyUser}? That's one way to feel.`)
-        } catch {
-          console.log(`Did not get a clear response`)
-        }
-      }
       getTalk()
       break
     case "exchange":
