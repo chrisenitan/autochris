@@ -50,7 +50,7 @@ let exchange = (to) => {
     url: `http://data.fixer.io/api/latest?access_key=66c8c6f8e0e1c6e1c63daa19dd4e48c0&symbols=${to}&format=1`,
   })
     .then((response) => {
-      outer(response.data)
+      console.log(response.data)
       outer(`One EUR is currently ${Object.values(response.data.rates)} ${to}`)
     })
     .catch((error) => {
