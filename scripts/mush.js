@@ -8,6 +8,7 @@ const usageHint = `Usage:
   mush date: returns the full dateTimeZone
   mush flipcoin: flips a coin and returns 'heads' or 'tails'
   mush talk: asks a question and responds
+  mush exchange <currency>: convert Euro to a given currency
   `
 //general output logger
 let outer = (req) => {

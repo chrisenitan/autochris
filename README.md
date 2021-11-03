@@ -6,6 +6,6 @@ General scripts I use in managing everything around; web scraping, browser contr
 2. Personal Node CLI tool
 3. Get and watch some sites for changes. 
 4. Screen color management
-    - Dark page all chrome tabs
+    - Dark page tab
     - Dark page with selectable bright grids
-    - Colourful mode
+    - Colourful tab mode
