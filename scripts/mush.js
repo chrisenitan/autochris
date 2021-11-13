@@ -8,7 +8,7 @@ const usageHint = `Usage:
   mush date: returns the full dateTimeZone
   mush flipcoin: flips a coin and returns 'heads' or 'tails'
   mush talk: asks a question and responds
-  mush exchange <currency>: convert Euro to a given currency
+  mush exch <amount> <currency>: convert given amount currency to Euro
   `
 //general output logger
 let outer = (req) => {
@@ -45,14 +45,16 @@ let getTalk = async () => {
   }) */
 
 //get exchange rate value
-let exchange = (to) => {
+let exchange = ({ amount, to }) => {
   axios({
     method: "GET",
     url: `http://data.fixer.io/api/latest?access_key=66c8c6f8e0e1c6e1c63daa19dd4e48c0&symbols=${to}&format=1`,
   })
     .then((response) => {
-      console.log(response.data)
-      outer(`One EUR is currently ${Object.values(response.data.rates)} ${to}`)
+      //console.log(response.data)
+      var dd = parseFloat(Object.values(response.data.rates))
+      var res = (dd * amount).toFixed(2)
+      outer(`${amount} EUR is currently ${res} ${to}`)
     })
     .catch((error) => {
       outer(error.data)
@@ -86,8 +88,11 @@ let processRequest = (args) => {
     case "talk":
       getTalk()
       break
-    case "exchange":
-      exchange(process.argv[3])
+    case "exch":
+      exchange({
+        amount: process.argv[3],
+        to: process.argv[4],
+      })
       break
     default:
       outer(`Could not parse the request\n${usageHint}`)
