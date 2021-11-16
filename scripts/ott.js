@@ -3,7 +3,7 @@ const fs = require("fs")
 const puppeteer = require("puppeteer")
 
 /* visit a page and take a screenshot
-send the image and a link to a useer.  */
+send the image and a link to a user.  */
 
 let ott = async (req) => {
   const browser = await puppeteer.launch({
