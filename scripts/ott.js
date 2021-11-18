@@ -17,7 +17,7 @@ let ott = async (req) => {
   })
   const page = await browser.newPage()
 
-  //try
+  //try all
   try {
     //define attr
     const sAtt = {}
@@ -28,6 +28,31 @@ let ott = async (req) => {
       type: "png",
       path: `screenshots/${sAtt.fileName}.png`,
     })
+    sAtt.mailBody = "<b>Hello world?</b>"
+
+    //send emails
+    try {
+      const transporter = await nodemailer.createTransport({
+        host: "outlook",
+        //port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: "zapper01",
+          pass: "crisdeven@hotmail.com",
+        },
+      })
+      let mail = await transporter.sendMail({
+        from: '"Fred Foo 👻" <foo@example.com>',
+        to: "enitanchris@gmail.com",
+        subject: "Hello ✔",
+        //text: "Hello world?",
+        html: sAtt.mailBody,
+      })
+      console.log(mail)
+    } catch (mailError) {
+      console.log(mailError)
+    }
+
     await browser.close()
     //delete bloat files
     fs.unlink(`screenshots/${sAtt.fileName}.png`, (err) => {
