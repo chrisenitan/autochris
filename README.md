@@ -10,5 +10,3 @@ General scripts I use in managing everything around; web scraping, browser contr
     - Dark page tab
     - Dark page with selectable bright grids
     - Colourful tab mode
-
-    wip in custome git commads
