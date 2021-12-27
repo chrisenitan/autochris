@@ -94,6 +94,9 @@ let processRequest = (args) => {
         to: process.argv[4],
       })
       break
+    case "explain":
+      console.log("wip")
+      break
     default:
       outer(`Could not parse the request\n${usageHint}`)
   }
