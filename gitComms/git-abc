@@ -1,0 +1,14 @@
+#!/bin/sh
+#update remote ref with current branch in commit message: helps project board linking
+commitMessage=$1
+currentBranch=$(git symbolic-ref --short -q HEAD) 
+export og=$(git remote)
+if [ ! -z "$1" ]
+then
+git add .
+git commit -m "$currentBranch: $1"
+git push $og $currentBranch
+echo "Pushed: $currentBranch to $og as '$1'"
+else
+echo "Please provide a commit message \n- git abc 'your commit message'"
+fi
