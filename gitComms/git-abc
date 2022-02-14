@@ -8,7 +8,7 @@ then
 git add .
 git commit -m "$currentBranch: $1"
 git push $og $currentBranch
-echo "Pushed: $currentBranch to $og as '$1'"
+echo "\x1b[32mPushed: $currentBranch to $og as '$1' \x1b[0m \n"
 else
-echo "Please provide a commit message \n- git abc 'your commit message'"
+echo "\x1b[34mPlease provide a commit message. \n> git abc 'your commit message' \x1b[0m \n"
 fi
