@@ -37,18 +37,20 @@ let ott = async (req) => {
         //port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: "zapper01",
-          pass: "crisdeven@hotmail.com",
+          user: process.env.username,
+          pass: process.env.password,
         },
+        debug: true, // show debug output
+        logger: true, // log information in console
       })
       let mail = await transporter.sendMail({
         from: '"Fred Foo 👻" <foo@example.com>',
-        to: "enitanchris@gmail.com",
+        to: "ennycris1@gmail.com",
         subject: "Hello ✔",
-        //text: "Hello world?",
-        html: sAtt.mailBody,
+        text: "Hello world?",
+        //html: sAtt.mailBody,
       })
-      console.log(mail)
+  //    console.log(mail)
     } catch (mailError) {
       console.log(mailError)
     }
