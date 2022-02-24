@@ -1,10 +1,10 @@
 const nodemailer = require("nodemailer")
 const fs = require("fs")
 const puppeteer = require("puppeteer")
+const memory = require("../memory.json")
 
 /* visit a page and take a screenshot
 send the image and a link to a user.  */
-
 let ott = async (req) => {
   const browser = await puppeteer.launch({
     headless: false,
@@ -28,29 +28,38 @@ let ott = async (req) => {
       type: "png",
       path: `screenshots/${sAtt.fileName}.png`,
     })
-    sAtt.mailBody = "<b>Hello world?</b>"
+    sAtt.mailBody = `Hello world!`
 
     //send emails
     try {
       const transporter = await nodemailer.createTransport({
-        host: "outlook",
-        //port: 587,
+        host: "smtp-mail.outlook.com",
+        port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: process.env.username,
-          pass: process.env.password,
+          user: memory.email,
+          pass: memory.password,
         },
-        debug: true, // show debug output
-        logger: true, // log information in console
+        debug: false, // show debug output
+        logger: false, // log information in console
       })
-      let mail = await transporter.sendMail({
-        from: '"Fred Foo 👻" <foo@example.com>',
-        to: "ennycris1@gmail.com",
+
+      await transporter.sendMail({
+        from: `Fred Foo 👻 <${memory.email}>`,
+        to: "futafe@getnada.com",
         subject: "Hello ✔",
-        text: "Hello world?",
-        //html: sAtt.mailBody,
+        html: sAtt.mailBody,
+        attachments: [
+          {
+            filename: `${sAtt.fileName}.png`,
+            path: `screenshots/${sAtt.fileName}.png`,
+            cid: `screenshots/${sAtt.fileName}.png`,
+          },
+        ],
+      }).then(res => {
+        console.log(res)
       })
-  //    console.log(mail)
+ 
     } catch (mailError) {
       console.log(mailError)
     }
