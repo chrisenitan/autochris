@@ -28,6 +28,7 @@ let ott = async (req) => {
       type: "png",
       path: `screenshots/${sAtt.fileName}.png`,
     })
+     await browser.close()
     sAtt.mailBody = `Hello world!`
 
     //send emails
@@ -63,8 +64,6 @@ let ott = async (req) => {
     } catch (mailError) {
       console.log(mailError)
     }
-
-    await browser.close()
     //delete bloat files
     fs.unlink(`screenshots/${sAtt.fileName}.png`, (err) => {
       if (err) {
