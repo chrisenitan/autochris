@@ -24,12 +24,15 @@ let ott = async (req) => {
     //foreach...reduce??
     await page.goto(req[0])
     sAtt.fileName = await page.title()
+    Object.assign(sAtt, {
+      filePath: `../images/screenshots/${sAtt.fileName}.png`,
+      mailBody: `Hello world!`,
+    })
     await page.screenshot({
       type: "png",
-      path: `screenshots/${sAtt.fileName}.png`,
+      path: sAtt.filePath,
     })
-     await browser.close()
-    sAtt.mailBody = `Hello world!`
+    await browser.close()
 
     //send emails
     try {
@@ -45,27 +48,29 @@ let ott = async (req) => {
         logger: false, // log information in console
       })
 
-      await transporter.sendMail({
-        from: `Fred Foo 👻 <${memory.email}>`,
-        to: "futafe@getnada.com",
-        subject: "Hello ✔",
-        html: sAtt.mailBody,
-        attachments: [
-          {
-            filename: `${sAtt.fileName}.png`,
-            path: `screenshots/${sAtt.fileName}.png`,
-            cid: `screenshots/${sAtt.fileName}.png`,
-          },
-        ],
-      }).then(res => {
-        console.log(res)
-      })
- 
+      await transporter
+        .sendMail({
+          from: `Fred Foo 👻 <${memory.email}>`,
+          to: "futafe@getnada.com",
+          subject: "Hello ✔",
+          html: sAtt.mailBody,
+          attachments: [
+            {
+              filename: `${sAtt.fileName}.png`,
+              path: sAtt.filePath,
+              cid: sAtt.filePath,
+            },
+          ],
+        })
+        .then((res) => {
+          console.log(res)
+        })
     } catch (mailError) {
       console.log(mailError)
     }
+    
     //delete bloat files
-    fs.unlink(`screenshots/${sAtt.fileName}.png`, (err) => {
+    fs.unlink(sAtt.filePath, (err) => {
       if (err) {
         console.log(err)
       }
