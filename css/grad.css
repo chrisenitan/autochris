@@ -96,10 +96,9 @@ body {
   width: 20%;
   min-height: 150px;
   background-color: black;
-  border: 0.5px solid#121212;
-  box-sizing: border-box;
-  padding-top: 62px;
   float: left;
+  padding-top: 30px;
+  box-sizing: border-box;
 }
 button {
   border: none;
@@ -109,6 +108,7 @@ button {
   cursor: pointer;
   padding: 10px;
   border-radius: 3px;
+  margin: 5px
 }
 button:hover {
   background-color: green;
