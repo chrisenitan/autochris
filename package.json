@@ -1,8 +1,12 @@
 {
   "name": "autochris",
+  "exports": {
+    ".": "./scripts/index.js"
+  },
   "version": "1.0.0",
   "description": "automation scripts",
   "main": "index.js",
+  "type": "module",
   "bin": {
     "mush": "bashes"
   },
