@@ -1,0 +1,37 @@
+{
+  "name": "autochris-scripts",
+  "exports": {
+    ".": "./index.js"
+  },
+  "version": "1.0.0",
+  "description": "automation scripts",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "mush": "bashes"
+  },
+  "scripts": {
+    "test": "test",
+    "ott": "node scripts/ott.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisenitan/autochris.git"
+  },
+  "keywords": [
+    "scripts",
+    "automation"
+  ],
+  "author": "Chris Enitan",
+  "license": "ISC",
+  "bugs": {
+    "url": "hhttps://github.com/chrisenitan/autochris/issues"
+  },
+  "homepage": "https://github.com/chrisenitan/autochris#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "dotenv": "^16.0.0",
+    "nodemailer": "^6.7.1",
+    "puppeteer": "^11.0.0"
+  }
+}
