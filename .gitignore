@@ -1,5 +1,6 @@
 .vscode/
 node_modules/
 .env
-memory.json
+memory.jsown
 **/.DS_Store
+**/DS_store
