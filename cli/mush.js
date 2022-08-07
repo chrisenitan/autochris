@@ -3,7 +3,7 @@ const readline = require("readline")
 const outer = require("./output")
 const exchanger = require("./exchange")
 const args = process.argv[2]
-const usageHint = `Usage:
+const usageHint = `Try:
   mush <command>\n\nAll Commands:
   mush help: overview of commands
   mush date: returns the full dateTimeZone
