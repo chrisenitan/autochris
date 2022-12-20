@@ -1,2 +1,2 @@
 #! /usr/bin/env node
-require("./cli/mush.js")
+require("./cli/mush/mush.js")
