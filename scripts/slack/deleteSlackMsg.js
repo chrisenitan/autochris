@@ -1,14 +1,9 @@
-//simple console script to delete all slaack messages in a chat.
-/* 
-not stable
-the dom gets element loaded in view so once a while you have to scroll up to preload new classes. 
-can fix with scroll event on else statements but i dont have time for that. 
-*/
+//simple script to delete all slack messages in private chat
+//! not stable. threaded messages still breaks or delays flow.
 const tools = {
-  perfromAction: (element, arrayItem, elementName, delay) => {
+  invokeStep: (element, arrayItem, elementName, delay) => {
     setTimeout(function () {
-      const button = document.querySelectorAll(element)[arrayItem]
-      if (button) {
+      if (document.querySelectorAll(element)[arrayItem]) {
         button.click()
         console.log(`found and clicked ${elementName}`)
       } else {
@@ -26,15 +21,17 @@ const tools = {
   },
 }
 
-async function myFunction() {
-  var hover = new Event("mouseover", { bubbles: true })
-  document.querySelectorAll(".c-message_kit__gutter__right")[2].dispatchEvent(hover)
-  tools.perfromAction('[data-qa="more_message_actions"]', 0, "menu button", 1000)
-  tools.perfromAction(".c-menu_item__label", 6, "delete button", 2500)
-  tools.perfromAction(".c-button--focus-visible", 0, "confirm delete button", 3500)
+async function deleteMessages() {
+  const randInt = Math.floor(Math.random() * 6) + 1
+  const hover = new Event("mouseover", { bubbles: true })
+  document.querySelectorAll(".c-message_kit__gutter__right")[randInt].click()
+  document.querySelectorAll(".c-message_kit__gutter__right")[randInt].dispatchEvent(hover)
+  tools.invokeStep('[data-qa="more_message_actions"]', 0, "menu button", 1000)
+  tools.invokeStep(".c-menu_item__label", 6, "delete button", 2500)
+  tools.invokeStep(".c-button--focus-visible", 0, "confirm delete button", 3500)
 }
 
-//run function every 4 sec to compensate for network requests
+//run function every 7 secs to compensate for network requests and step delays
 setInterval(function () {
-  myFunction()
-}, 4000)
+  deleteMessages()
+}, 7000)
