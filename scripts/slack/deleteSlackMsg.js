@@ -3,17 +3,17 @@
 const system = {
   invokeSteps: () => {
     for (const property in system.steps) {
+      const { selector, arrayIndex, log, delay } = system.steps[property]
       setTimeout(function () {
-        const currentStep = system.steps[property]
-        const button = document.querySelectorAll(currentStep.selector)[currentStep.arrayIndex]
+        const button = document.querySelectorAll(selector)[arrayIndex]
         if (button) {
           button.click()
-          console.log(`found and clicked ${currentStep.log}`)
+          console.log(`found and clicked ${log}`)
         } else {
           system.beep()
-          console.log(`could not find ${currentStep.log}`)
+          console.log(`could not find ${log}`)
         }
-      }, currentStep.delay)
+      }, delay)
     }
   },
 
