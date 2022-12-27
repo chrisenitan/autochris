@@ -1,16 +1,20 @@
 //simple script to delete all slack messages in private chat
 //! not stable. threaded messages still breaks or delays flow.
-const tools = {
-  invokeStep: (element, arrayItem, elementName, delay) => {
-    setTimeout(function () {
-      if (document.querySelectorAll(element)[arrayItem]) {
-        button.click()
-        console.log(`found and clicked ${elementName}`)
-      } else {
-        tools.beep()
-        console.log(`could not find ${elementName}`)
-      }
-    }, delay)
+const system = {
+  invokeSteps: () => {
+    for (const property in system.steps) {
+      setTimeout(function () {
+        const currentStep = system.steps[property]
+        const button = document.querySelectorAll(currentStep.selector)[currentStep.arrayIndex]
+        if (button) {
+          button.click()
+          console.log(`found and clicked ${currentStep.log}`)
+        } else {
+          system.beep()
+          console.log(`could not find ${currentStep.log}`)
+        }
+      }, currentStep.delay)
+    }
   },
 
   beep: () => {
@@ -19,6 +23,27 @@ const tools = {
     )
     snd.play()
   },
+
+  steps: {
+    clickMenu: {
+      selector: '[data-qa="more_message_actions"]',
+      arrayIndex: 0,
+      log: "menu button",
+      delay: 500,
+    },
+    clickDelete: {
+      selector: ".c-menu_item__label",
+      arrayIndex: 6,
+      log: "delete button",
+      delay: 500,
+    },
+    clickConfirmDelete: {
+      selector: ".c-button--focus-visible",
+      arrayIndex: 0,
+      log: "confirm delete button",
+      delay: 1000,
+    },
+  },
 }
 
 async function deleteMessages() {
@@ -26,12 +51,10 @@ async function deleteMessages() {
   const hover = new Event("mouseover", { bubbles: true })
   document.querySelectorAll(".c-message_kit__gutter__right")[randInt].click()
   document.querySelectorAll(".c-message_kit__gutter__right")[randInt].dispatchEvent(hover)
-  tools.invokeStep('[data-qa="more_message_actions"]', 0, "menu button", 1000)
-  tools.invokeStep(".c-menu_item__label", 6, "delete button", 2500)
-  tools.invokeStep(".c-button--focus-visible", 0, "confirm delete button", 3500)
+  system.invokeSteps()
 }
 
-//run function every 7 secs to compensate for network requests and step delays
+//run function every 4 secs to compensate for network requests and step delays
 setInterval(function () {
   deleteMessages()
-}, 7000)
+}, 4500)
