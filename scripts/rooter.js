@@ -1,5 +1,5 @@
 //import { ff } from './scripts/index.js'
-import { locals, globals } from 'autochris-scripts'
+import { locals, globals } from 'automation-scripts'
 
 console.log(locals)
 console.log(globals["four"])

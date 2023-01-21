@@ -1,5 +1,5 @@
 {
-  "name": "autochris",
+  "name": "automation",
   "exports": {
     ".": "./scripts/index.js"
   },
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrisenitan/autochris.git"
+    "url": "git+https://github.com/chrisenitan/automation.git"
   },
   "keywords": [
     "scripts",
@@ -24,9 +24,9 @@
   "author": "Chris Enitan",
   "license": "ISC",
   "bugs": {
-    "url": "hhttps://github.com/chrisenitan/autochris/issues"
+    "url": "hhttps://github.com/chrisenitan/automation/issues"
   },
-  "homepage": "https://github.com/chrisenitan/autochris#readme",
+  "homepage": "https://github.com/chrisenitan/automation#readme",
   "dependencies": {
     "axios": "^0.23.0",
     "dotenv": "^16.0.0",
