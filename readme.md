@@ -1,4 +1,4 @@
-# AutoChris
+# automation
 General scripts I use in managing everything around; web scraping, browser controls, peripherals managements... 
 
 ## Some of what it does 
