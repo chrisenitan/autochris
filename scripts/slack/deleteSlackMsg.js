@@ -55,6 +55,4 @@ async function deleteMessages() {
 }
 
 //run function every 4 secs to compensate for network requests and step delays
-setInterval(function () {
-  deleteMessages()
-}, 4500)
+setInterval(deleteMessages, 4500)
