@@ -1,7 +1,7 @@
 #!/bin/bash
-#delete folders in download path.
+#delete folders in download path
 cd "/Users/chrisenitan/Downloads/"
 echo $PWD
-rm -r Z1/* Z2/* Z3/* Z4/* Z5/* Zage/*
+rm -r z1/* z2/* z3/* z4/* z5/* z6/* z7/*
 #rmdir Z1
 echo "cleaned all download directories"
