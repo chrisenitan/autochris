@@ -14,8 +14,8 @@ const system = {
     }
   },
 
-  gaurdUrl: (url) => {
-    if (document.location.href === url) return true
+  guardUrl: (url) => {
+    if (document.location.href.search(url) >= 0) return true
   },
 }
 
@@ -43,7 +43,7 @@ const slackSteps = {
 }
 
 async function deleteSlackMessages() {
-  if (system.gaurdUrl("https://app.slack.com/client/T8XCT0DDW/D04K1F6L3A7")) {
+  if (system.guardUrl("slack")) {
     const randInt = Math.floor(Math.random() * 6) + 1
     const hover = new Event("mouseover", { bubbles: true })
     document.querySelectorAll(".c-message_kit__gutter__right")[randInt].click()
@@ -70,6 +70,21 @@ const tradingViewSteps = {
 }
 
 async function dismissTradingViewAds() {
-  if (system.gaurdUrl("https://www.tradingview.com/chart/0MCMRG7T/")) system.invokeSteps(tradingViewSteps)
+  if (system.guardUrl("tradingview")) system.invokeSteps(tradingViewSteps)
 }
 setInterval(dismissTradingViewAds, 60000)
+
+//youtube yes pause/play
+const youtubeSteps = {
+  clickYesButton: {
+    selector: "tp-yt-paper-button[aria-label='Yes']",
+    arrayIndex: 0,
+    log: "yes keep playing",
+    delay: 500,
+  },
+}
+
+async function playPausedControl() {
+  if (system.guardUrl("youtube")) system.invokeSteps(youtubeSteps)
+}
+setInterval(playPausedControl, 240000)
