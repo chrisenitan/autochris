@@ -1,5 +1,6 @@
+//using https://developer.chrome.com/docs/devtools/javascript/snippets/
 const system = {
-  invokeSteps: (steps) => {
+  invokeClickSteps: (steps) => {
     for (const property in steps) {
       const { selector, arrayIndex, log, delay } = steps[property]
       setTimeout(function () {
@@ -48,7 +49,7 @@ async function deleteSlackMessages() {
     const hover = new Event("mouseover", { bubbles: true })
     document.querySelectorAll(".c-message_kit__gutter__right")[randInt].click()
     document.querySelectorAll(".c-message_kit__gutter__right")[randInt].dispatchEvent(hover)
-    system.invokeSteps(slackSteps)
+    system.invokeClickSteps(slackSteps)
   }
 }
 setInterval(deleteSlackMessages, 4500)
@@ -70,7 +71,7 @@ const tradingViewSteps = {
 }
 
 async function dismissTradingViewAds() {
-  if (system.guardUrl("tradingview")) system.invokeSteps(tradingViewSteps)
+  if (system.guardUrl("tradingview")) system.invokeClickSteps(tradingViewSteps)
 }
 setInterval(dismissTradingViewAds, 60000)
 
@@ -85,6 +86,6 @@ const youtubeSteps = {
 }
 
 async function playPausedControl() {
-  if (system.guardUrl("youtube")) system.invokeSteps(youtubeSteps)
+  if (system.guardUrl("youtube")) system.invokeClickSteps(youtubeSteps)
 }
 setInterval(playPausedControl, 240000)
