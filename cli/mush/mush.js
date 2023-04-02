@@ -1,6 +1,6 @@
 //simple cli tool
 const readline = require("readline")
-const outer = require("./output")
+const pLine = require("./output")
 const exchanger = require("./exchange")
 const args = process.argv[2]
 const usageHint = `Try:
@@ -51,10 +51,10 @@ let processRequest = (args) => {
   //engine
   switch (args) {
     case "help":
-      outer.outer(usageHint)
+      pLine.outer(usageHint)
       break
     case "date":
-      outer.outer(new Date())
+      pLine.outer(new Date())
       break
     case "flipcoin":
       if (new Date().getSeconds() % 2 != 0) {
@@ -62,7 +62,7 @@ let processRequest = (args) => {
       } else {
         var coin = "Tails"
       }
-      outer.outer(coin)
+      pLine.outer(coin)
       break
     case "talk":
       getTalk()
@@ -77,7 +77,7 @@ let processRequest = (args) => {
       console.log("wip")
       break
     default:
-      outer.outer(`Hi! I don't know how to respond to that.\n${usageHint}`)
+      pLine.outer(`Hi! I don't know how to respond to that.\n${usageHint}`)
   }
 }
 processRequest(args)
