@@ -1,5 +1,6 @@
 #!/bin/bash
 #delete folders in download path.
+#todo run this vis mspn?
 cd "/Users/chrisenitan/Downloads/"
 echo $PWD
 rm -r Z1/* Z2/* Z3/* Z4/* Z5/* Zage/*
